@@ -2,11 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="250dp"
+    android:id="@+id/main"
+    android:layout_width="350dp"
     android:layout_height="500dp"
     android:background="#ABAEB0"
     tools:context=".LoggingPopUp">
-
     <TextView
         android:id="@+id/textView_transaction"
         android:layout_width="0dp"
@@ -34,58 +34,30 @@
             android:id="@+id/radioButton_income"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Income" />
+            android:text="@string/income" />
 
         <RadioButton
             android:id="@+id/radioButton_expense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Expense" />
+            android:text="@string/expense" />
     </RadioGroup>
 
     <HorizontalScrollView
         android:id="@+id/HorizontalScrollView"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup_transactionTypes">
 
         <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroup_expenseType"
-            android:layout_width="match_parent"
+            android:id="@+id/chipGroup_categories"
+            android:layout_width="350dp"
             android:layout_height="match_parent"
             app:chipSpacingHorizontal="25dp"
             app:singleLine="true"
             app:singleSelection="true">
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipExpense_transportation"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Transportation" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipExpense_food"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Food" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipExpense_entertainment"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Entertainment" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipExpense_utilities"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Utilities" />
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
 
@@ -94,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="$ "
+        android:hint="@string/etHintPopUp"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,7 +76,7 @@
         android:id="@+id/confirmButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Confirm"
+        android:text="@string/confirm"
         app:layout_constraintStart_toStartOf="@+id/etDecimal_inputPrice"
         app:layout_constraintTop_toBottomOf="@+id/etDecimal_inputPrice" />
 
@@ -112,11 +84,10 @@
         android:id="@+id/returnButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Return"
+        android:text="@string/returnButton"
         app:layout_constraintEnd_toEndOf="@+id/etDecimal_inputPrice"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/confirmButton"
         app:layout_constraintTop_toBottomOf="@+id/etDecimal_inputPrice" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

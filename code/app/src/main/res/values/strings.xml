@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Project</string>
+    <string name="income">Income</string>
+    <string name="expense">Expense</string>
+    <string name="confirm">Confirm</string>
+    <string name="etHintPopUp">$</string>
+    <string name="returnButton">Return</string>
 </resources>
