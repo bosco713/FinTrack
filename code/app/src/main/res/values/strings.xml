@@ -5,4 +5,12 @@
     <string name="confirm">Confirm</string>
     <string name="etHintPopUp">$</string>
     <string name="returnButton">Return</string>
+    <string name="transaction">Transaction</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="amount">Amount</string>
+    <string name="fintrack">FinTrack</string>
+    <string name="summary">Summary</string>
+    <string name="logging">Logging</string>
+    <string name="planning">Planning</string>
+    <string name="setting">Setting</string>
 </resources>

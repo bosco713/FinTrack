@@ -2,92 +2,92 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/popup_logging"
     android:layout_width="350dp"
     android:layout_height="500dp"
     android:background="#ABAEB0"
     tools:context=".LoggingPopUp">
+
     <TextView
-        android:id="@+id/textView_transaction"
+        android:id="@+id/popup_logging_textView_transaction"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:background="#8C8F91"
-        android:text="Transaction"
+        android:text="@string/transaction"
         android:textAlignment="center"
-        android:textSize="25dp"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
-        android:id="@+id/radioGroup_transactionTypes"
+        android:id="@+id/popup_logging_radioGroup_transactionTypes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_transaction">
+        app:layout_constraintTop_toBottomOf="@+id/popup_logging_textView_transaction">
 
         <RadioButton
-            android:id="@+id/radioButton_income"
+            android:id="@+id/popup_logging_radioButton_income"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="@string/income" />
 
         <RadioButton
-            android:id="@+id/radioButton_expense"
+            android:id="@+id/popup_logging_radioButton_expense"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="@string/expense" />
     </RadioGroup>
 
     <HorizontalScrollView
-        android:id="@+id/HorizontalScrollView"
+        android:id="@+id/popup_logging_horizontalScrollView_categories"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup_transactionTypes">
+        app:layout_constraintTop_toBottomOf="@+id/popup_logging_radioGroup_transactionTypes">
 
         <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroup_categories"
+            android:id="@+id/popup_logging_chipGroup_categories"
             android:layout_width="350dp"
             android:layout_height="match_parent"
             app:chipSpacingHorizontal="25dp"
             app:singleLine="true"
-            app:singleSelection="true">
-        </com.google.android.material.chip.ChipGroup>
+            app:singleSelection="true"></com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
 
     <EditText
-        android:id="@+id/etDecimal_inputPrice"
+        android:id="@+id/popup_logging_editTextDecimal_inputPrice"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:ems="10"
         android:hint="@string/etHintPopUp"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/HorizontalScrollView" />
+        app:layout_constraintTop_toBottomOf="@+id/popup_logging_horizontalScrollView_categories" />
 
     <Button
-        android:id="@+id/confirmButton"
+        android:id="@+id/popup_logging_button_confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/confirm"
-        app:layout_constraintStart_toStartOf="@+id/etDecimal_inputPrice"
-        app:layout_constraintTop_toBottomOf="@+id/etDecimal_inputPrice" />
+        app:layout_constraintStart_toStartOf="@+id/popup_logging_editTextDecimal_inputPrice"
+        app:layout_constraintTop_toBottomOf="@+id/popup_logging_editTextDecimal_inputPrice" />
 
     <Button
-        android:id="@+id/returnButton"
+        android:id="@+id/popup_logging_button_return"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/returnButton"
-        app:layout_constraintEnd_toEndOf="@+id/etDecimal_inputPrice"
+        app:layout_constraintEnd_toEndOf="@+id/popup_logging_editTextDecimal_inputPrice"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/confirmButton"
-        app:layout_constraintTop_toBottomOf="@+id/etDecimal_inputPrice" />
+        app:layout_constraintStart_toEndOf="@+id/popup_logging_button_confirm"
+        app:layout_constraintTop_toBottomOf="@+id/popup_logging_editTextDecimal_inputPrice" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
