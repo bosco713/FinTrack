@@ -1,12 +1,14 @@
 package com.project.fintrack
 
 import android.content.Context
+import android.os.Build
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.PopupWindow
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
@@ -70,21 +72,30 @@ class LoggingPopUp {
         chipGroup?.invalidate()
     }
 
-    fun confirmButtonOnClick(popUpConfirmationView: View?,popUpConfirmationWindow: PopupWindow, storeCheckedText: CharSequence, transactionAmount: String?) {
+    @RequiresApi(Build.VERSION_CODES.O) // limitation: OG popUpWindow need to be called inside here to dismiss
+    fun confirmButtonOnClick(popUpConfirmationView: View?, popUpConfirmationWindow: PopupWindow
+                             , isExpense: Boolean, transactionAmount: String, popUpWindow: PopupWindow) {
 
         val tvTransactionType = popUpConfirmationView?.findViewById<TextView>(R.id.popup_loggingConfirm_textView_transactionType)
         val tvTransactionCategory = popUpConfirmationView?.findViewById<TextView>(R.id.popup_loggingConfirm_textView_transactionCategory)
         val tvTransactionAmount = popUpConfirmationView?.findViewById<TextView>(R.id.popup_loggingConfirm_textView_transactionAmount)
 
-        tvTransactionType?.text = ": ".plus(storeCheckedText)
+        if (isExpense) {
+            tvTransactionType?.text = ": ".plus("Expense")
+        } else {
+            tvTransactionType?.text = ": ".plus("Income")
+        }
         tvTransactionCategory?.text = ": ".plus(checkedCategoryText)
         tvTransactionAmount?.text = ": $ ".plus(transactionAmount)
 
         val confirmTransaction = popUpConfirmationView?.findViewById<Button>(R.id.popup_loggingConfirm_button_confirm)
         val returnTransaction = popUpConfirmationView?.findViewById<Button>(R.id.popup_loggingConfirm_button_return)
 
-        confirmTransaction?.setOnClickListener{
-
+        confirmTransaction?.setOnClickListener{// already validate data presence in MainActivity before passing here
+            val loggingConfirmPopUp = LoggingConfirmPopUp()
+            loggingConfirmPopUp.loggingConfirmButton(isExpense, checkedCategoryText, transactionAmount.toDouble())
+            popUpConfirmationWindow.dismiss()
+            popUpWindow.dismiss()
         }
         returnTransaction?.setOnClickListener{
             popUpConfirmationWindow.dismiss()

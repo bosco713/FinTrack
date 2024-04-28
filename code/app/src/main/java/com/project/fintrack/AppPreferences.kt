@@ -7,12 +7,9 @@ import androidx.core.content.edit
 object AppPreferences {
     private var sharedPreferences: SharedPreferences? = null
 
-    // TODO step 1: call `AppPreferences.setup(applicationContext)` in your MainActivity's `onCreate` method
     fun setup(context: Context, name: String, mode: Int) {
-        // TODO step 2: set your app name here
         sharedPreferences = context.getSharedPreferences(name, mode)
     }
-    // TODO step 4: replace these example attributes with your stored values
     var incomeList: List<String>?
         get() = Key.INCOME.getString()?.split(',')
         set(value) = Key.INCOME.setString(Key.INCOME.getString()?.plus(",$value"))
@@ -21,7 +18,7 @@ object AppPreferences {
         get() = Key.EXPENSE.getString()?.split(',')
         set(value) = Key.EXPENSE.setString(Key.EXPENSE.getString()?.plus(",$value"))
     private enum class Key {
-        INCOME, EXPENSE; // TODO step 3: replace these cases with your stored values keys
+        INCOME, EXPENSE;
 
         fun getBoolean(): Boolean? =
             if (sharedPreferences!!.contains(name)) sharedPreferences!!.getBoolean(

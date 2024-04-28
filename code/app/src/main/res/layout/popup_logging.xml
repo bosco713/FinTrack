@@ -90,4 +90,14 @@
         app:layout_constraintStart_toEndOf="@+id/popup_logging_button_confirm"
         app:layout_constraintTop_toBottomOf="@+id/popup_logging_editTextDecimal_inputPrice" />
 
+    <TextView
+        android:id="@+id/popup_logging_textView_warning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="230dp"
+        android:textColor="#EB2D0B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/popup_logging_textView_transaction" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
