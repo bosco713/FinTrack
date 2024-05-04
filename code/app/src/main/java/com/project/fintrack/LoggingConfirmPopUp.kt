@@ -24,11 +24,10 @@ class LoggingConfirmPopUp {
         // for debug
         runBlocking(Dispatchers.Default) {
             val allTransactionData: List<TransactionData> = db.transactionDAO().getAll()
-            val index = 2
-//            for (index in allTransactionDat)
-            Log.d("database", "inserted without error, " +
-                "\"current = ${allTransactionData[index].transactionId.toString()}, isExpense = ${allTransactionData[index].isExpense.toString()}" +
-                ", category = ${allTransactionData[index].transactionCategory}, amount = ${allTransactionData[index].transactionAmount.toString()}")
+            for (transaction: TransactionData in allTransactionData)
+                Log.d("current_database", "inserted without error, " +
+                    "\"current = ${transaction.transactionId.toString()}, isExpense = ${transaction.isExpense.toString()}" +
+                    ", category = ${transaction.transactionCategory}, amount = ${transaction.transactionAmount.toString()}")
         }
     }
 }

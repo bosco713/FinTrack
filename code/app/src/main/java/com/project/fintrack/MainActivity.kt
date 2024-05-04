@@ -1,6 +1,7 @@
 package com.project.fintrack;
 
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -42,6 +43,31 @@ class MainActivity : AppCompatActivity() {
 //            putString("EXPENSE", "Transportation,Food,Utility,Entertainment")
 //            apply()
 //        }
+    }
+
+    fun summaryButtonOnClick(view: View?) {
+        val inflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater;
+        val popupView = inflater.inflate(R.layout.popup_summary, null);
+
+        val width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        val height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        val focus = true;
+        val popupWindow = PopupWindow(popupView, width, height, focus);
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        val dashboardButton = popupView.findViewById<Button>(R.id.popup_summary_dashboard)
+        val reportButton = popupView.findViewById<Button>(R.id.popup_summary_report)
+
+        dashboardButton.setOnClickListener {
+            Intent(this, SummaryDashboardActivity::class.java).also {
+                startActivity(it)
+            }
+        }
+        reportButton.setOnClickListener {
+            Intent(this, SummaryReportActivity::class.java).also {
+                startActivity(it)
+            }
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

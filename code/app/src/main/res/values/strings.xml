@@ -13,4 +13,21 @@
     <string name="logging">Logging</string>
     <string name="planning">Planning</string>
     <string name="setting">Setting</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="items">Items:</string>
+    <string name="money_hkd">Money/HKD($)</string>
+    <string name="total_income">- Total income</string>
+    <string name="total_expenses">- Total expenses</string>
+    <string name="net_income">- Net income</string>
+    <string name="saving_goal">- Saving goal</string>
+    <string name="expense_limit">- Expense limit</string>
+    <string name="daily">Daily</string>
+    <string name="monthly">Monthly</string>
+    <string name="yearly">Yearly</string>
+
+    <string-array name="spinnerOptions">
+        <item>@string/daily</item>
+        <item>@string/monthly</item>
+        <item>@string/yearly</item>
+    </string-array>
 </resources>
