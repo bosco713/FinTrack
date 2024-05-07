@@ -35,14 +35,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AppPreferences.setup(applicationContext, "types", MODE_PRIVATE);
-//        val sharedPref = getSharedPreferences("types", MODE_PRIVATE)
-//        val editor = sharedPref.edit()
-//        editor.apply{
-//            clear()
-//            putString("INCOME", "Salary,Pocket money,Investment")
-//            putString("EXPENSE", "Transportation,Food,Utility,Entertainment")
-//            apply()
-//        }
+        val sharedPref = getSharedPreferences("types", MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.apply{
+            clear()
+            putString("INCOME", "Salary,Pocket money,Investment")
+            putString("EXPENSE", "Transportation,Food,Utility,Entertainment")
+            apply()
+        }
     }
 
     fun summaryButtonOnClick(view: View?) {
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         reportButton.setOnClickListener {
-            Intent(this, SummaryReportActivity::class.java).also {
+            Intent(this, SummaryYearlyReportActivity::class.java).also {
                 startActivity(it)
             }
         }
@@ -123,6 +123,30 @@ class MainActivity : AppCompatActivity() {
 
         returnButton.setOnClickListener{
             popupWindow.dismiss()
+        }
+    }
+
+    fun settingButtonOnClick(view: View?) {
+        val inflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater;
+        val popupView = inflater.inflate(R.layout.popup_setting, null);
+
+        val width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        val height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        val focus = true;
+        val popupWindow = PopupWindow(popupView, width, height, focus);
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        val manageCategoryButton = popupView.findViewById<Button>(R.id.setting_button_manageCategory)
+        val deleteEntryButton = popupView.findViewById<Button>(R.id.setting_button_deleteEntry)
+        manageCategoryButton.setOnClickListener {
+            Intent(this, SettingManageCategoryActivity::class.java).also {
+                startActivity(it)
+            }
+        }
+        deleteEntryButton.setOnClickListener {
+            Intent(this, SettingDeleteEntryActivity::class.java).also {
+                startActivity(it)
+            }
         }
     }
 }

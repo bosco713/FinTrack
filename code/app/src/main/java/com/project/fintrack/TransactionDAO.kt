@@ -34,6 +34,9 @@ interface TransactionDAO {
     @Query("SELECT * FROM transaction_table WHERE transactionId/10000 LIKE :yearMonthDate")
     suspend fun loadAllByDate(yearMonthDate: Long): List<TransactionData>
 
+    @Query("SELECT * FROM transaction_table ORDER BY transactionId DESC LIMIT 10")
+    suspend fun loadLastTenData(): List<TransactionData>
+
     @Query("SELECT * FROM transaction_table WHERE transactionId/100000000 LIKE :year AND is_expense LIKE :isExpense")
     suspend fun loadAllByYear(year: Int, isExpense: Boolean): List<TransactionData>
 

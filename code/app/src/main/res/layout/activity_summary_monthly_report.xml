@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SummaryMonthlyReportActivity">
+
+    <ImageButton
+        android:id="@+id/summary_monthly_report_button_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/homeAsUpIndicator" />
+
+    <com.androidplot.xy.XYPlot
+        android:id="@+id/summary_monthly_report_xyPlot"
+        style="@style/APDefacto.Light"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Monthly report"
+        app:titleTextSize="25sp"
+        app:rangeTitle="Amount ($)"
+        app:domainTitle="Date">
+    </com.androidplot.xy.XYPlot>
+
+    <Button
+        android:id="@+id/summary_monthly_report_toMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/to_yearly_report"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
