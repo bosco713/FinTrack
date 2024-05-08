@@ -104,9 +104,9 @@ class SummaryDashboardActivity : AppCompatActivity() {
                     }
                 }
                 val netIncomeValue = incomeValue - expenseValue
-                income.text = incomeValue.toString()
-                expense.text = expenseValue.toString()
-                netIncome.text = netIncomeValue.toString()
+                income.text = String.format("%.1f", incomeValue)
+                expense.text = String.format("%.1f", expenseValue)
+                netIncome.text = String.format("%.1f", netIncomeValue)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
