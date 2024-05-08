@@ -51,4 +51,10 @@ interface TransactionDAO {
 
     @Query("SELECT * FROM transaction_table WHERE transactionId/10000 LIKE :yearMonthDate AND is_expense LIKE :isExpense AND category LIKE :category")
     suspend fun loadAllByDate(yearMonthDate: Long, isExpense: Boolean, category: String): List<TransactionData>
+
+    @Query("SELECT COALESCE(SUM(CASE WHEN is_expense THEN -COALESCE(amount, 0.0) ELSE COALESCE(amount, 0.0) END), 0.0) FROM transaction_table")
+    suspend fun calculateNetAmount(): Double
+
+    @Query("SELECT COALESCE(SUM(CASE WHEN is_expense THEN COALESCE(amount, 0.0) ELSE 0.0 END), 0.0) FROM transaction_table")
+    suspend fun calculateTotalExpense(): Double
 }
