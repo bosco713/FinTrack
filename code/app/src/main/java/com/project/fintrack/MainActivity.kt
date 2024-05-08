@@ -17,6 +17,12 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.room.Room
+import kotlinx.coroutines.runBlocking
+import java.sql.Time
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,10 +37,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AppPreferences.setup(applicationContext, "types", MODE_PRIVATE);
+//        for debug
+//
 //        val sharedPref = getSharedPreferences("types", MODE_PRIVATE)
 //        val editor = sharedPref.edit()
 //        editor.apply{
@@ -43,6 +52,9 @@ class MainActivity : AppCompatActivity() {
 //            putString("EXPENSE", "Transportation,Food,Utility,Entertainment")
 //            apply()
 //        }
+//
+//        buildingRandomDatasetForTesting()
+
     }
 
     fun summaryButtonOnClick(view: View?) {
@@ -64,7 +76,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         reportButton.setOnClickListener {
-            Intent(this, SummaryReportActivity::class.java).also {
+            Intent(this, SummaryYearlyReportActivity::class.java).also {
                 startActivity(it)
             }
         }
@@ -123,6 +135,86 @@ class MainActivity : AppCompatActivity() {
 
         returnButton.setOnClickListener{
             popupWindow.dismiss()
+        }
+    }
+
+    fun settingButtonOnClick(view: View?) {
+        val inflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater;
+        val popupView = inflater.inflate(R.layout.popup_setting, null);
+
+        val width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        val height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        val focus = true;
+        val popupWindow = PopupWindow(popupView, width, height, focus);
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        val manageCategoryButton = popupView.findViewById<Button>(R.id.setting_button_manageCategory)
+        val deleteEntryButton = popupView.findViewById<Button>(R.id.setting_button_deleteEntry)
+        manageCategoryButton.setOnClickListener {
+            Intent(this, SettingManageCategoryActivity::class.java).also {
+                startActivity(it)
+            }
+        }
+        deleteEntryButton.setOnClickListener {
+            Intent(this, SettingDeleteEntryActivity::class.java).also {
+                startActivity(it)
+            }
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun buildingRandomDatasetForTesting() {
+        val startingMonth = 1
+        val endingMonth = 5
+        val startingDate = 1
+        val endingDate = 31
+        val startingHour = 0
+        val endingHour = 23
+        val startingMinute = 0
+        val endingMinute = 59
+        val incomeList = listOf("Salary", "Pocket money" ,"Investment")
+        val expenseList = listOf("Transportation", "Food", "Utility", "Entertainment")
+        val idList = mutableListOf<Long>()
+        val db = Room.databaseBuilder(MainActivity.applicationContext()
+            , TransactionDatabase::class.java, "transaction.db").build()
+        val maxNumData = 200
+        var count = 0
+        while (count < maxNumData) {
+            val formatter = DateTimeFormatter.ofPattern("yyyyMMdd")
+            Random(LocalDateTime.now().format(formatter).toInt())
+            val year = 2024
+            val month = Random.nextInt(startingMonth, endingMonth+1)
+            var date = Random.nextInt(startingDate, endingDate+1)
+            val hour = Random.nextInt(startingHour, endingHour+1)
+            val minute = Random.nextInt(startingMinute, endingMinute+1)   // limitation
+            if (month == 2) {
+                if (date > 29) {
+                    date = 29
+                }
+            } else if (month == 4) {
+                date = 30
+            }
+            val id: Long = year.toLong() * 100000000 + month.toLong() * 1000000 + date.toLong() * 10000 + hour * 100 + minute
+            if (idList.contains(id)) {
+                continue
+            } else {
+                idList.add(id)
+            }
+            var isExpense: Boolean = true
+            if (count % 2 == 1) {
+                isExpense = false
+            }
+            val category: String
+            if (isExpense) {
+                category = expenseList[Random.nextInt(0, 3)]
+            } else {
+                category = incomeList[Random.nextInt(0, 2)]
+            }
+            val amount = String.format("%.1f", Random.nextDouble(10.0, 100.0)).toDouble()
+            runBlocking {
+                db.transactionDAO().insertAll(TransactionData(id, isExpense, category, amount))
+            }
+            count++
         }
     }
 }

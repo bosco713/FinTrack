@@ -24,9 +24,25 @@
     <string name="daily">Daily</string>
     <string name="monthly">Monthly</string>
     <string name="yearly">Yearly</string>
+    <string name="manage_category">Manage Category</string>
+    <string name="delete_entry">Delete Entry</string>
+    <string name="income_or_expense_category_name">income or expense category name</string>
+    <string name="category_name">category name</string>
+    <string name="add_to_income">Add to Income</string>
+    <string name="add_to_expense">Add to Expense</string>
+    <string name="delete_income">Delete Income</string>
+    <string name="delete_expense">Delete Expense</string>
+    <string name="reset_to_default">Reset to default</string>
+    <string name="to_yearly_report">To yearly report</string>
+    <string name="to_monthly_report">To monthly report</string>
+    <string name="delete">Delete</string>
 
-    <string-array name="spinnerOptions">
+    <string-array name="dashboardSpinnerOptions">
         <item>@string/daily</item>
+        <item>@string/monthly</item>
+        <item>@string/yearly</item>
+    </string-array>
+    <string-array name="reportSpinnerOptions">
         <item>@string/monthly</item>
         <item>@string/yearly</item>
     </string-array>

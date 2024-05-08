@@ -12,11 +12,12 @@ object AppPreferences {
     }
     var incomeList: List<String>?
         get() = Key.INCOME.getString()?.split(',')
-        set(value) = Key.INCOME.setString(Key.INCOME.getString()?.plus(",$value"))
+        set(value) = Key.INCOME.setString("".plus(value?.get(0)))
 
     var expenseList: List<String>?
         get() = Key.EXPENSE.getString()?.split(',')
-        set(value) = Key.EXPENSE.setString(Key.EXPENSE.getString()?.plus(",$value"))
+        set(value) = Key.EXPENSE.setString("".plus(value?.get(0)))
+
     private enum class Key {
         INCOME, EXPENSE;
 
