@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp">
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/homeAsUpIndicator" />
+
+    <TextView
+        android:id="@+id/editGoalHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/backButton"
+        android:layout_alignParentTop="true"
+        android:text="Edit Goal"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginStart="20dp"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
+
+    <TextView
+        android:id="@+id/labelGoalName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Goal Name"
+        android:layout_below="@+id/backButton"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:id="@+id/editGoalName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/labelGoalName"
+        android:hint="Goal Name"
+        android:singleLine="true"/>
+
+    <TextView
+        android:id="@+id/labelGoalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Target Amount"
+        android:layout_below="@id/editGoalName"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:id="@+id/editGoalAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:layout_below="@id/labelGoalAmount"
+        android:hint="Target Amount"
+        android:singleLine="true"/>
+
+    <TextView
+        android:id="@+id/labelGoalDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="End Date"
+        android:layout_below="@id/editGoalAmount"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:id="@+id/editGoalDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/labelGoalDate"
+        android:hint="End Date"
+        android:singleLine="true"/>
+
+    <Button
+        android:id="@+id/saveGoalButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Changes"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/editGoalDate"/>
+
+</RelativeLayout>

@@ -1,5 +1,7 @@
 package com.project.fintrack;
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -23,6 +25,9 @@ import java.sql.Time
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import kotlin.random.Random
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,6 +40,23 @@ class MainActivity : AppCompatActivity() {
         fun applicationContext() : Context {
             return instance!!.applicationContext
         }
+
+        const val CHANNEL_NAME = "FinTrack_notification"
+        const val CHANNEL_DESCRIPTION = "For savings goals"
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun createNotificationChannel() {
+        val name = CHANNEL_NAME
+        val descriptionText = CHANNEL_DESCRIPTION
+        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val channel = NotificationChannel("channel_id", name, importance).apply {
+            description = descriptionText
+        }
+
+        val notificationManager: NotificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -55,6 +77,16 @@ class MainActivity : AppCompatActivity() {
 //
 //        buildingRandomDatasetForTesting()
 
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            createNotificationChannel()
+        }
+
+        val planningButton = findViewById<Button>(R.id.activity_main_planningButton)
+        planningButton.setOnClickListener {
+            val intent = Intent(this, PlanningActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     fun summaryButtonOnClick(view: View?) {

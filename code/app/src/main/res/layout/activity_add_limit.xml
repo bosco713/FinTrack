@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp">
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/homeAsUpIndicator" />
+
+    <TextView
+        android:id="@+id/addLimitHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/backButton"
+        android:layout_alignParentTop="true"
+        android:text="Add Limit"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginStart="20dp"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
+
+    <TextView
+        android:id="@+id/labelLimitName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Limit Name"
+        android:layout_below="@+id/backButton"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:id="@+id/editLimitName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/labelLimitName"
+        android:hint="Limit Name"
+        android:singleLine="true"/>
+
+    <TextView
+        android:id="@+id/labelLimitExpense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Target Expense"
+        android:layout_below="@id/editLimitName"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:id="@+id/editLimitExpense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:layout_below="@id/labelLimitExpense"
+        android:hint="Target Expense"
+        android:singleLine="true"/>
+
+    <TextView
+        android:id="@+id/labelLimitDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="End Date"
+        android:layout_below="@id/editLimitExpense"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:id="@+id/editLimitDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/labelLimitDate"
+        android:hint="End Date"
+        android:singleLine="true"/>
+
+    <Button
+        android:id="@+id/saveLimitButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Limit"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/editLimitDate"/>
+</RelativeLayout>
