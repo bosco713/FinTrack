@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".authentication.Register"
+    android:background="@color/cream"
+    android:padding="40dp"
+    android:gravity="top"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="253dp"
+        android:layout_height="136dp"
+        android:layout_centerHorizontal="true"
+        android:padding="30dp"
+        android:layout_gravity="center"
+        android:src="@drawable/fintracklogo"/>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:elevation="30dp"
+        app:cardCornerRadius="35dp"
+        app:strokeColor="@color/white"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/reward_dialog_background"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tvUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/cream"
+                app:boxCornerRadiusBottomEnd="2400dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="username*"
+                    android:inputType="text"
+                    android:paddingHorizontal="10dp"
+                    android:textStyle="italic" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tvEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:boxBackgroundColor="@color/cream">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="email*"
+                    android:inputType="textEmailAddress"
+                    android:paddingHorizontal="10dp"
+                    android:textStyle="italic" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tvPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:boxBackgroundColor="@color/cream"
+                app:counterEnabled="true"
+                app:counterMaxLength="20"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="password*"
+                    android:inputType="textPassword"
+                    android:maxLength="20"
+                    android:paddingHorizontal="10dp"
+                    android:textStyle="italic" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tvConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/cream"
+                app:counterEnabled="true"
+                app:counterMaxLength="20"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etConfirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="confirm password*"
+                    android:inputType="textPassword"
+                    android:maxLength="20"
+                    android:paddingHorizontal="10dp"
+                    android:textStyle="italic" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRegister"
+                style="@style/TextAppearance.MaterialComponents.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="REGISTER"
+                android:textStyle="bold"
+                android:textColor="@color/cream"
+                app:rippleColor="@color/cream"
+                app:cornerRadius="30dp"/>
+
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <LinearLayout
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ProgressBar
+            android:id="@+id/pbRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateDuration="@integer/material_motion_duration_medium_1"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:text="Already have an account?"/>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="124dp"
+            android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
+            android:background="@color/ap_transparent"
+            android:gravity="center"
+            android:text="Login Here"
+            android:textColor="@color/blue"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

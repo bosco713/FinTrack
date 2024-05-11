@@ -43,7 +43,7 @@
         android:layout_below="@+id/savingsGoalsButton"/>
 
     <Button
-        android:id="@+id/rewardButton"
+        android:id="@+id/btnReward"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Reward"

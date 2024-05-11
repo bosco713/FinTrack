@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Project" parent="Theme.MaterialComponents.DayNight.DarkActionBar" />
-    <style name="Theme.MainActivity" parent="@style/Theme.MaterialComponents.DayNight.DarkActionBar" />
+    <style name="Theme.Project" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
+    <style name="Theme.MainActivity" parent="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
     <style name="Theme.ChipButton" parent="Theme.MaterialComponents.DayNight.DarkActionBar" />
+
+
+    <style name="splashScreen"
+        parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/baseline_find_in_page_24</item>
+        <item name="android:statusBarColor">@color/white</item>
+    </style>
 </resources>

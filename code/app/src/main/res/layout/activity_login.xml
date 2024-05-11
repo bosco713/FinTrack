@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".authentication.Login"
+    android:gravity="center"
+    android:padding="60dp"
+    android:background="@color/cream">
+
+
+    <LinearLayout
+        android:layout_width="307dp"
+        android:layout_height="653dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/ivAccountIcon"
+            android:layout_width="200dp"
+            android:layout_height="187dp"
+            android:src="@drawable/ic_account" />
+
+        <ImageView
+            android:id="@+id/ivFintrack"
+            android:fadingEdge="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fintracklogo" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="10dp"
+            android:elevation="30dp"
+            app:cardCornerRadius="35dp"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/reward_dialog_background"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tvEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:boxBackgroundColor="@color/cream"
+                    app:boxCornerRadiusBottomEnd="2400dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="email"
+                        android:inputType="textEmailAddress"
+                        android:paddingHorizontal="10dp"
+                        android:textStyle="italic" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tvPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:boxBackgroundColor="@color/cream"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="20"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="password"
+                        android:inputType="textPassword"
+                        android:maxLength="20"
+                        android:paddingHorizontal="10dp"
+                        android:textStyle="italic" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLogin"
+                    style="@style/TextAppearance.MaterialComponents.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="LOGIN"
+                    app:rippleColor="@color/cream"
+                    android:textColor="@color/cream"
+                    android:textStyle="bold"
+                    app:cornerRadius="30dp" />
+
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tvEmailURL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Forgot your password?\nClick here to seek help" />
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@color/ap_transparent"
+            android:gravity="center"
+            android:scaleY="1.3"
+            android:text="@string/Register"
+            android:textColor="@color/black"
+            android:textScaleX="1.3"
+            android:textSize="10dp" />
+
+        <ProgressBar
+            android:id="@+id/pbLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:indeterminateDuration="@integer/material_motion_duration_short_1"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
