@@ -125,7 +125,9 @@ class EditLimitActivity : AppCompatActivity() {
             putExtra("limit_date", newDate)
             putExtra("notification_id", limitId.toInt())
         }
-        val pendingIntent = PendingIntent.getBroadcast(this, limitId.toInt(), intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        val pendingIntent = PendingIntent.getBroadcast(
+            this, limitId.toInt(), intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
 
         val targetCal = Calendar.getInstance().apply {
             time = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(newDate)!!

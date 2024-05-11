@@ -98,11 +98,11 @@ class ExpenseLimitAdapter(
                     endDate = limit.endDate
                 )
                 updateLimit(updatedLimit)
-                val progress = ((limit.currentExpense / limit.targetExpense) * 100).toInt()
+                val progress = ((currentExpense / limit.targetExpense) * 100).toInt()
                 holder.limitItemContainer.setBackgroundColor(Color.WHITE)
                 holder.dueDatePassedNotice.visibility = View.GONE
                 holder.limitProgressBar.progress = progress
-                holder.limitProgressText.text = "${progress}% of ${limit.targetExpense} (${limit.currentExpense}/${limit.targetExpense})"
+                holder.limitProgressText.text = "${progress}% of ${limit.targetExpense} (${currentExpense}/${limit.targetExpense})"
             }
         }
     }
