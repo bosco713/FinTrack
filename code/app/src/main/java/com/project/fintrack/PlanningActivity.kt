@@ -6,8 +6,11 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import com.project.fintrack.databinding.ActivityPlanningBinding
 
 class PlanningActivity : AppCompatActivity() {
+    //private lateinit var binding: ActivityPlanningBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_planning)
@@ -27,6 +30,10 @@ class PlanningActivity : AppCompatActivity() {
         val backButton = findViewById<ImageButton>(R.id.backButton)
         backButton.setOnClickListener {
             finish()
+        }
+
+        findViewById<Button>(R.id.btnReward).setOnClickListener() {
+            startActivity(Intent(this, Reward::class.java))
         }
     }
 }

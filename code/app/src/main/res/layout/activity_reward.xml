@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:background="@drawable/login_background"
+    tools:context=".Reward">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="?attr/homeAsUpIndicator" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reward"
+                android:layout_marginLeft="10dp"
+                android:gravity="left"
+                android:padding="10dp"
+                android:textSize="30dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tvLines"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wow! You've got that far!"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/blue"
+            android:padding="20dp"
+            android:textSize="30dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="453dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/reward_background"
+            android:elevation="40dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvReminder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NO ACHIEVEMENTS"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:visibility="visible"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/ivAch1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:foregroundGravity="center"
+                    android:src="@drawable/achievement"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    tools:ignore="MissingConstraints"
+                    android:visibility="invisible"
+                    android:focusableInTouchMode="true"
+                    tools:layout_editor_absoluteY="310dp" />
+                <TextView
+                    android:id="@+id/tvAch1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Be The First!"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toEndOf="@+id/imageView2"
+                    tools:layout_editor_absoluteY="80dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/ivAch2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:foregroundGravity="center"
+                    android:src="@drawable/achievement"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    tools:ignore="MissingConstraints"
+                    android:visibility="invisible"
+                    android:focusableInTouchMode="true"
+                    tools:layout_editor_absoluteY="310dp" />
+                <TextView
+                    android:id="@+id/tvAch2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Avalanche"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toEndOf="@+id/imageView2"
+                    tools:layout_editor_absoluteY="80dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/ivAch3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:foregroundGravity="center"
+                    android:src="@drawable/achievement"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    tools:ignore="MissingConstraints"
+                    android:visibility="invisible"
+                    android:focusableInTouchMode="true"
+                    tools:layout_editor_absoluteY="310dp" />
+                <TextView
+                    android:id="@+id/tvAch3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Final Rush"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toEndOf="@+id/imageView2"
+                    tools:layout_editor_absoluteY="80dp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <nl.dionsegijn.konfetti.KonfettiView
+            android:id="@+id/kkView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
+
+        <Button
+            android:id="@+id/btnCheckReward"
+            android:text="Check Reward"
+            android:textColor="@color/teal_200"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:gravity="center"
+            android:background="@drawable/input_round_corner"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
