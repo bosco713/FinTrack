@@ -1,9 +1,12 @@
 package com.project.fintrack;
 
+import android.app.Dialog
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,25 +15,35 @@ import android.view.Gravity
 import android.view.LayoutInflater;
 import android.widget.PopupWindow;
 import android.view.View;
+import android.view.Window
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.room.Room
+import com.google.android.material.button.MaterialButton
+import com.google.firebase.auth.FirebaseAuth
+import com.project.fintrack.authentication.Login
 import kotlinx.coroutines.runBlocking
 import java.sql.Time
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import kotlin.random.Random
+//import androidx.work.PeriodicWorkRequestBuilder
+//import androidx.work.WorkManager
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
     init {
         instance = this
     }
+
+    private lateinit var firebaseAuth: FirebaseAuth
 
     companion object {
         private var instance: MainActivity? = null
@@ -78,6 +91,32 @@ class MainActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             createNotificationChannel()
         }
+
+        // DISPLAY NAME AND LOGOUT FUNCTION
+        val name = findViewById<TextView>(R.id.tvUsername)
+        firebaseAuth = FirebaseAuth.getInstance()
+        name.text = "Account:\t " + firebaseAuth.currentUser?.email
+        val btnLogout = findViewById<MaterialButton>(R.id.btnLogout)
+        btnLogout.setOnClickListener() {
+            val dialog = Dialog(this)
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            dialog.setCancelable(false)
+            dialog.setContentView(R.layout.logout_dialog)
+            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+            val btnYes = dialog.findViewById<MaterialButton>(R.id.mbtnYes)
+            val btnCancel = dialog.findViewById<MaterialButton>(R.id.mbtnCancel)
+
+            btnYes.setOnClickListener() {
+                startActivity(Intent(this, Login::class.java))
+            }
+            btnCancel.setOnClickListener() {
+                dialog.dismiss()
+
+            }
+            dialog.show()
+        }
+        // END OF DISPLAY NAME AND LOGOUT FUNCTION
 
         val planningButton = findViewById<Button>(R.id.activity_main_planningButton)
         planningButton.setOnClickListener {

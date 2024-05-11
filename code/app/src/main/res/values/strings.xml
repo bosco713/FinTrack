@@ -46,4 +46,13 @@
         <item>@string/monthly</item>
         <item>@string/yearly</item>
     </string-array>
+
+    <string name="link">
+        Forgot your password? \n <a href="juliusccj2@gmail.com"> Click here </a> to seek help.
+    </string>
+    <string name="Register">
+        New one? Register here.
+    </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
