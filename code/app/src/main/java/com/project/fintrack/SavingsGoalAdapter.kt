@@ -98,11 +98,11 @@ class SavingsGoalAdapter(
                     endDate = goal.endDate
                 )
                 updateGoal(updatedGoal)
-                val progress = ((goal.currentAmount / goal.targetAmount) * 100).toInt()
+                val progress = ((currentAmount / goal.targetAmount) * 100).toInt()
                 holder.goalItemContainer.setBackgroundColor(Color.WHITE)
                 holder.dueDatePassedNotice.visibility = View.GONE
                 holder.goalProgressBar.progress = progress
-                holder.goalProgressText.text = "${progress}% of ${goal.targetAmount} (${goal.currentAmount}/${goal.targetAmount})"
+                holder.goalProgressText.text = "${progress}% of ${goal.targetAmount} (${currentAmount}/${goal.targetAmount})"
             }
         }
     }
