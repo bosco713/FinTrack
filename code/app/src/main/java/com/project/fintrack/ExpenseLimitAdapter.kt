@@ -77,13 +77,13 @@ class ExpenseLimitAdapter(
                 if (progress < 100) {
                     holder.limitItemContainer.setBackgroundColor(Color.parseColor("#B9F6CA"))
                     holder.dueDatePassedNotice.text = "Limit not exceeded!"
-                    holder.dueDatePassedNotice.setTextColor(Color.parseColor("388E3C"))
-                    holder.limitProgressText.setTextColor(Color.parseColor("388E3C"))
+                    holder.dueDatePassedNotice.setTextColor(Color.parseColor("#388E3C"))
+                    holder.limitProgressText.setTextColor(Color.parseColor("#388E3C"))
                 } else {
                     holder.limitItemContainer.setBackgroundColor(Color.parseColor("#FFEBEE"))
                     holder.dueDatePassedNotice.text = "Limit exceeded"
-                    holder.dueDatePassedNotice.setTextColor(Color.parseColor("D32F2F"))
-                    holder.limitProgressText.setTextColor(Color.parseColor("D32F2F"))
+                    holder.dueDatePassedNotice.setTextColor(Color.parseColor("#D32F2F"))
+                    holder.limitProgressText.setTextColor(Color.parseColor("#D32F2F"))
                 }
                 holder.dueDatePassedNotice.visibility = View.VISIBLE
                 holder.limitProgressBar.progress = progress
