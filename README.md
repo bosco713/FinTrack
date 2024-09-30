@@ -11,6 +11,8 @@ FinTrack is a cutting-edge financial management application designed to revoluti
 - [Application Functionality](#application-functionality)
 - [Testing and Quality Assurance](#testing-and-quality-assurance)
 - [Reflections and Further Improvements](#reflection-and-further-improvements)
+- [Instruction](#instruction)
+- [Authors](#authors)
 
 ## Key Features
 - Logging: Easily input transaction data with error checking to ensure valid entries.
