@@ -2,7 +2,7 @@
 - COMP4521 Final Project
 
 ## Overview
-FinTrack is a cutting-edge financial management application designed to revolutionize how individuals organize, track, and optimize their financial activities. Developed with user empowerment in mind, FinTrack offers a comprehensive suite of features tailored to meet diverse financial needs.
+FinTrack is a financial management application designed to revolutionize how individuals organize, track, and optimize their financial activities. 
 
 ## Table of Contents
 - [Key Features](#key-features)
