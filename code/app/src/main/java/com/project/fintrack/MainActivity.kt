@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
 //            apply()
 //        }
 //
-//        buildingRandomDatasetForTesting()
+//
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -117,6 +117,8 @@ class MainActivity : AppCompatActivity() {
             dialog.show()
         }
         // END OF DISPLAY NAME AND LOGOUT FUNCTION
+
+//        buildingRandomDatasetForTesting()
 
         val planningButton = findViewById<Button>(R.id.activity_main_planningButton)
         planningButton.setOnClickListener {
@@ -232,10 +234,10 @@ class MainActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun buildingRandomDatasetForTesting() {
-        val startingMonth = 1
+        val startingMonth = 5
         val endingMonth = 5
         val startingDate = 1
-        val endingDate = 31
+        val endingDate = 11
         val startingHour = 0
         val endingHour = 23
         val startingMinute = 0
@@ -245,7 +247,7 @@ class MainActivity : AppCompatActivity() {
         val idList = mutableListOf<Long>()
         val db = Room.databaseBuilder(MainActivity.applicationContext()
             , TransactionDatabase::class.java, "transaction.db").build()
-        val maxNumData = 200
+        val maxNumData = 20
         var count = 0
         while (count < maxNumData) {
             val formatter = DateTimeFormatter.ofPattern("yyyyMMdd")

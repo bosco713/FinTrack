@@ -52,7 +52,7 @@ class GoalAlarmReceiver : BroadcastReceiver() {
             addNextIntent(planningIntent)
             addNextIntent(savingsIntent)
         }
-        val resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
+        val resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
 
         val notificationBuilder = NotificationCompat.Builder(context, "channel_id")
             .setSmallIcon(R.drawable.ic_notifications)

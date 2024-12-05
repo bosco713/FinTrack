@@ -69,8 +69,9 @@
 
     <ScrollView
         android:id="@+id/setting_deleteEntry_scrollView"
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_height="200dp"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

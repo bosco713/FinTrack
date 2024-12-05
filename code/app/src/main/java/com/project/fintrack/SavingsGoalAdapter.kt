@@ -77,13 +77,13 @@ class SavingsGoalAdapter(
                 if (progress >= 100) {
                     holder.goalItemContainer.setBackgroundColor(Color.parseColor("#B9F6CA"))
                     holder.dueDatePassedNotice.text = "Goal achieved!"
-                    holder.dueDatePassedNotice.setTextColor(Color.parseColor("388E3C"))
-                    holder.goalProgressText.setTextColor(Color.parseColor("388E3C"))
+                    holder.dueDatePassedNotice.setTextColor(Color.parseColor("#388E3C"))
+                    holder.goalProgressText.setTextColor(Color.parseColor("#388E3C"))
                 } else {
                     holder.goalItemContainer.setBackgroundColor(Color.parseColor("#FFEBEE"))
                     holder.dueDatePassedNotice.text = "Goal not achieved"
-                    holder.dueDatePassedNotice.setTextColor(Color.parseColor("D32F2F"))
-                    holder.goalProgressText.setTextColor(Color.parseColor("D32F2F"))
+                    holder.dueDatePassedNotice.setTextColor(Color.parseColor("#D32F2F"))
+                    holder.goalProgressText.setTextColor(Color.parseColor("#D32F2F"))
                 }
                 holder.dueDatePassedNotice.visibility = View.VISIBLE
                 holder.goalProgressBar.progress = progress
